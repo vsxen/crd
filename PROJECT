@@ -1,3 +1,7 @@
 domain: vsxen.dev
 repo: crd
+resources:
+- group: db
+  kind: Redis
+  version: v1beta1
 version: "2"
