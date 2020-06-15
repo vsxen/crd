@@ -4,4 +4,6 @@ metadata:
   name: redis-sample
 spec:
   # Add fields here
-  foo: bar
+ # masterconunt: 3
+  deploymentName: demo
+  Replicas: 1

@@ -18,8 +18,8 @@ test: generate fmt vet manifests
 	go test ./... -coverprofile cover.out
 
 # Build manager binary
-manager: generate fmt vet
-	go build -o bin/manager main.go
+manager: generate fmt
+	go build -ldflags "-s -w" -o bin/manager main.go
 
 # Run against the configured Kubernetes cluster in ~/.kube/config
 run: generate fmt vet manifests

@@ -27,15 +27,21 @@ import (
 type RedisSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	// +kubebuilder:validation:MaxLength=64
+	DeploymentName string `json:"deploymentName"`
 
-	// Foo is an example field of Redis. Edit Redis_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// +kubebuilder:validation:Minimum=0
+	Replicas *int32 `json:"replicas,omitempty"`
+	// master count
+	// Masterconunt int `json:"masterconunt,omitempty"`
 }
 
 // RedisStatus defines the observed state of Redis
 type RedisStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	// +kubebuilder:validation:Minimum=0
+	ReadyReplicas int32 `json:"readyReplicas,omitempty"`
 }
 
 // +kubebuilder:object:root=true

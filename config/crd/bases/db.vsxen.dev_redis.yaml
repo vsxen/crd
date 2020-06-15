@@ -34,13 +34,28 @@ spec:
         spec:
           description: RedisSpec defines the desired state of Redis
           properties:
-            foo:
-              description: Foo is an example field of Redis. Edit Redis_types.go to
-                remove/update
+            deploymentName:
+              description: 'INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+                Important: Run "make" to regenerate code after modifying this file'
+              maxLength: 64
               type: string
+            replicas:
+              format: int32
+              minimum: 0
+              type: integer
+          required:
+          - deploymentName
           type: object
         status:
           description: RedisStatus defines the observed state of Redis
+          properties:
+            readyReplicas:
+              description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                of cluster Important: Run "make" to regenerate code after modifying
+                this file'
+              format: int32
+              minimum: 0
+              type: integer
           type: object
       type: object
   version: v1beta1
